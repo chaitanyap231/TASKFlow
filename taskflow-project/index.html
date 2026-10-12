@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b2d">
+  <meta name="description" content="TaskFlow — a calm, simple space to organise your next steps.">
+  <title>TaskFlow — make room for what matters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TaskFlow home"><span class="brand-mark">t<span>•</span></span><span>taskflow<span class="brand-period">.</span></span></a>
+      <div class="topbar-note"><span class="live-dot"></span> Your personal workspace</div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="eyebrow-line"></span> A LITTLE MORE CLARITY</p>
+      <h1 id="page-title">Make room for<br>what <span>matters.</span></h1>
+      <p class="hero-subtitle">Big things happen one small step at a time.<br>Let's make today's steps count.</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Task summary">
+      <article class="stat-card stat-total"><div class="stat-top"><span class="stat-label">All tasks</span><span class="stat-symbol">↗</span></div><p id="total-count" class="stat-number">0</p><p class="stat-foot">Your whole picture</p></article>
+      <article class="stat-card"><div class="stat-top"><span class="stat-label">To do</span><span class="stat-symbol symbol-violet">○</span></div><p id="todo-count" class="stat-number">0</p><p class="stat-foot">Waiting for you</p></article>
+      <article class="stat-card"><div class="stat-top"><span class="stat-label">In progress</span><span class="stat-symbol symbol-blue">◷</span></div><p id="progress-count" class="stat-number">0</p><p class="stat-foot">You're on your way</p></article>
+      <article class="stat-card"><div class="stat-top"><span class="stat-label">Completed</span><span class="stat-symbol symbol-mint">✓</span></div><p id="done-count" class="stat-number">0</p><p class="stat-foot">Look at you go</p></article>
+    </section>
+
+    <section class="workspace" aria-labelledby="tasks-heading">
+      <div class="section-heading"><div><p class="section-kicker">YOUR SPACE</p><h2 id="tasks-heading">The task list<span class="heading-dot">.</span></h2></div><button id="clear-done" class="text-button" type="button" disabled>Clear completed <span>↗</span></button></div>
+      <form class="add-panel" onsubmit="return false">
+        <label class="sr-only" for="title">Task name</label><span class="input-plus" aria-hidden="true">＋</span>
+        <input id="title" name="title" type="text" placeholder="What would you like to get done?" autocomplete="off" maxlength="160">
+        <label class="sr-only" for="status">Starting status</label>
+        <select id="status" name="status" aria-label="Starting status"><option value="todo">To do</option><option value="in-progress">In progress</option><option value="done">Done</option></select>
+        <button id="add" type="button" class="add-button">Add task <span>↗</span></button>
+      </form>
+      <div class="list-toolbar"><div id="chips" class="filter-chips" role="group" aria-label="Filter tasks"><button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">Everything</button><button class="filter-chip" type="button" data-filter="todo" aria-pressed="false">To do</button><button class="filter-chip" type="button" data-filter="in-progress" aria-pressed="false">In progress</button><button class="filter-chip" type="button" data-filter="done" aria-pressed="false">Completed</button></div><label class="search-box"><span aria-hidden="true">⌕</span><span class="sr-only">Search tasks</span><input id="search" type="search" placeholder="Search" autocomplete="off"></label></div>
+      <ul id="list" class="task-list" aria-label="Tasks"></ul>
+      <div id="empty-state" class="empty-state"><div class="empty-illustration" aria-hidden="true"><span>✓</span></div><h3>A fresh page.</h3><p>Add a task above and give your ideas somewhere to go.</p></div>
+      <footer class="list-footer"><span><span class="footer-spark">✳</span> Progress, not perfection.</span><span>Saved on this device <span class="save-dot"></span></span></footer>
+    </section>
+    <footer class="page-footer">MADE FOR YOUR NEXT SMALL WIN <span>✳</span></footer>
+  </main>
+</body>
+</html>
